@@ -16,11 +16,11 @@ function App() {
     // 만약 다 입력 되지 않는 다면 종료
     if (!name || !gold || !silver || !bronze) return;
     // 같은 국가가 있는 찾음 | 소문자 변환
-    const existingCountry = countries.find(function (country) {
+    const sameCountry = countries.find(function (country) {
       return country.name.toLowerCase() === name.toLowerCase();
     });
     // 같은 이름의 국가가 있다면 경고창 띄움.
-    if (existingCountry) {
+    if (sameCountry) {
       alert("이미 있는 국가");
       return;
     }
@@ -32,7 +32,7 @@ function App() {
       silver: parseInt(silver),
       bronze: parseInt(bronze),
     };
-    //
+    // newCountry를 목록에 추가 | 현재 국가 목록인 prevCountries를 펼쳐서 newCountry 추가
     setCountries(function (prevCountries) {
       return [...prevCountries, newCountry];
     });
@@ -47,11 +47,11 @@ function App() {
   function handleUpdate() {
     if (!name || !gold || !silver || !bronze) return;
 
-    const existingCountry = countries.find(function (country) {
+    const sameCountry = countries.find(function (country) {
       return country.name.toLowerCase() === name.toLowerCase();
     });
 
-    if (!existingCountry) {
+    if (!sameCountry) {
       alert("없는 국가");
       return;
     }
